@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 14px 16px;
+      width: 220px;
+      font: 13px/1.4 system-ui, sans-serif;
+      background: #16181d;
+      color: #d8dce3;
+    }
+    h1 { font-size: 14px; margin: 0 0 10px; font-weight: 600; }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label:hover { background: #252932; }
+    input { accent-color: #4c8dff; margin: 0; }
+    small { display: block; color: #9aa3b2; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Jenkins Dark Mode</h1>
+  <label><input type="radio" name="mode" value="dark"> Always dark</label>
+  <label><input type="radio" name="mode" value="auto"> Follow system</label>
+  <label><input type="radio" name="mode" value="off"> Off</label>
+  <small>Applies to any Jenkins page instantly.</small>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+/* Jenkins Dark Mode
+ * Everything is scoped to html.jdm-dark, which content.js only sets on Jenkins pages.
+ * Part 1 overrides the CSS variables used by modern Jenkins (2.3xx+).
+ * Part 2 adds element fallbacks for older UIs and common plugins.
+ */
+
+html.jdm-dark {
+  color-scheme: dark;
+
+  /* palette */
+  --jdm-bg: #16181d;
+  --jdm-bg-2: #1d2027;
+  --jdm-bg-3: #252932;
+  --jdm-bg-4: #2e333e;
+  --jdm-border: #353b47;
+  --jdm-text: #d8dce3;
+  --jdm-text-2: #9aa3b2;
+  --jdm-link: #7cb4ff;
+  --jdm-link-hover: #a8ccff;
+  --jdm-accent: #4c8dff;
+
+  /* Jenkins core theme variables */
+  --background: var(--jdm-bg);
+  --text-color: var(--jdm-text);
+  --text-color-secondary: var(--jdm-text-2);
+  --link-color: var(--jdm-link);
+  --link-color--hover: var(--jdm-link-hover);
+  --link-color--active: var(--jdm-link-hover);
+  --link-dark-color: var(--jdm-text);
+  --focus-input-border: var(--jdm-accent);
+
+  --header-background: #0f1115;
+  --header-link-color: var(--jdm-text);
+  --breadcrumbs-background: var(--jdm-bg);
+  --breadcrumbs-bar-background: var(--jdm-bg);
+  --breadcrumbs-text-color: var(--jdm-text-2);
+
+  --card-background: var(--jdm-bg-2);
+  --card-background--hover: var(--jdm-bg-3);
+  --card-background--active: var(--jdm-bg-4);
+  --card-border-color: var(--jdm-border);
+  --panel-background: var(--jdm-bg-2);
+  --panel-border-color: var(--jdm-border);
+
+  --input-color: var(--jdm-bg-2);
+  --input-border: var(--jdm-border);
+  --input-border-hover: #4a5262;
+  --input-hidden-password-bg-color: var(--jdm-bg-3);
+
+  --button-background: var(--jdm-bg-3);
+  --button-background--hover: var(--jdm-bg-4);
+  --button-background--active: #384050;
+  --button-box-shadow--focus: rgba(76, 141, 255, 0.35);
+
+  --item-background--hover: rgba(255, 255, 255, 0.06);
+  --item-background--active: rgba(255, 255, 255, 0.1);
+  --item-box-shadow--focus: rgba(76, 141, 255, 0.35);
+
+  --table-background: var(--jdm-bg-2);
+  --table-header-foreground: var(--jdm-text);
+  --table-body-background: var(--jdm-bg-2);
+  --table-body-foreground: var(--jdm-text);
+  --table-border-color: var(--jdm-border);
+  --table-row-border-color: var(--jdm-border);
+  --table-striped-background: rgba(255, 255, 255, 0.03);
+  --bigtable-border-width: 1px;
+
+  --menu-text-color: var(--jdm-text);
+  --menu-background: var(--jdm-bg-3);
+  --dropdown-background: var(--jdm-bg-3);
+  --tooltip-background: var(--jdm-bg-4);
+  --tooltip-color: var(--jdm-text);
+
+  --pre-background: #0f1115;
+  --pre-color: var(--jdm-text);
+  --code-background: var(--jdm-bg-3);
+
+  --search-bg: var(--jdm-bg-3);
+  --search-input-color: var(--jdm-text);
+  --search-box-shadow: none;
+
+  --side-panel-background: var(--jdm-bg);
+  --side-panel-hover: rgba(255, 255, 255, 0.06);
+
+  --alert-default-background: var(--jdm-bg-3);
+  --alert-default-color: var(--jdm-text);
+  --alert-info-background: #13263f;
+  --alert-info-color: #a8ccff;
+  --alert-success-background: #12301f;
+  --alert-success-color: #8fe0aa;
+  --alert-warning-background: #3a2e10;
+  --alert-warning-color: #f2d27a;
+  --alert-danger-background: #3d1618;
+  --alert-danger-color: #ff9c9c;
+}
+
+/* ---------- Part 2: element fallbacks ---------- */
+
+html.jdm-dark,
+html.jdm-dark body,
+html.jdm-dark #page-body,
+html.jdm-dark #main-panel,
+html.jdm-dark #side-panel,
+html.jdm-dark #page-header,
+html.jdm-dark .page-footer,
+html.jdm-dark footer {
+  background-color: var(--jdm-bg) !important;
+  color: var(--jdm-text);
+}
+
+html.jdm-dark #page-header,
+html.jdm-dark .page-header {
+  background-color: #0f1115 !important;
+  border-bottom: 1px solid var(--jdm-border);
+}
+
+html.jdm-dark #breadcrumbBar,
+html.jdm-dark #breadcrumb-bar,
+html.jdm-dark .jenkins-breadcrumbs {
+  background-color: var(--jdm-bg) !important;
+  border-color: var(--jdm-border) !important;
+}
+
+html.jdm-dark a:not(.jenkins-button):not(.task-link) {
+  color: var(--jdm-link);
+}
+html.jdm-dark a:not(.jenkins-button):not(.task-link):hover {
+  color: var(--jdm-link-hover);
+}
+html.jdm-dark .task-link,
+html.jdm-dark #tasks a {
+  color: var(--jdm-text) !important;
+}
+
+/* tables */
+html.jdm-dark table.pane,
+html.jdm-dark table.sortable,
+html.jdm-dark table.jenkins-table,
+html.jdm-dark .bigtable,
+html.jdm-dark #projectstatus {
+  background-color: var(--jdm-bg-2) !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark table.pane td,
+html.jdm-dark table.pane th,
+html.jdm-dark .bigtable td,
+html.jdm-dark .bigtable th,
+html.jdm-dark #projectstatus td,
+html.jdm-dark #projectstatus th,
+html.jdm-dark .jenkins-table td,
+html.jdm-dark .jenkins-table th {
+  background-color: transparent !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .pane-header,
+html.jdm-dark table.pane th,
+html.jdm-dark .bigtable th,
+html.jdm-dark #projectstatus th {
+  background-color: var(--jdm-bg-3) !important;
+}
+html.jdm-dark #projectstatus tr:hover td,
+html.jdm-dark .jenkins-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* cards, panes, tabs */
+html.jdm-dark .jenkins-card,
+html.jdm-dark .jenkins-section,
+html.jdm-dark .jenkins-pane,
+html.jdm-dark #buildHistory,
+html.jdm-dark #executors,
+html.jdm-dark #buildQueue,
+html.jdm-dark .tabBar .tab,
+html.jdm-dark .tabBarFrame,
+html.jdm-dark .section-header,
+html.jdm-dark .row-set-start,
+html.jdm-dark .setting-main,
+html.jdm-dark .config-table {
+  background-color: var(--jdm-bg-2) !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .tabBar .tab.active,
+html.jdm-dark .tabBar .tab a.selected {
+  background-color: var(--jdm-bg-3) !important;
+}
+
+/* forms */
+html.jdm-dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.jdm-dark textarea,
+html.jdm-dark select,
+html.jdm-dark .jenkins-input,
+html.jdm-dark .jenkins-select__input,
+html.jdm-dark .setting-input {
+  background-color: var(--jdm-bg-2) !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark input::placeholder,
+html.jdm-dark textarea::placeholder {
+  color: var(--jdm-text-2) !important;
+}
+html.jdm-dark button:not(.jenkins-button--primary):not(.jenkins-button--danger),
+html.jdm-dark .yui-button button,
+html.jdm-dark .jenkins-button:not(.jenkins-button--primary):not(.jenkins-button--danger) {
+  background-color: var(--jdm-bg-3);
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .yui-button,
+html.jdm-dark .yui-button .first-child {
+  background: transparent !important;
+  border-color: var(--jdm-border) !important;
+}
+
+/* menus, dropdowns, tooltips */
+html.jdm-dark .yuimenu,
+html.jdm-dark .yuimenu .bd,
+html.jdm-dark .jenkins-dropdown,
+html.jdm-dark .tippy-box,
+html.jdm-dark #search-box-completion,
+html.jdm-dark .jenkins-command-palette__dialog,
+html.jdm-dark .jenkins-search,
+html.jdm-dark .jenkins-dialog {
+  background-color: var(--jdm-bg-3) !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .yuimenuitem-selected,
+html.jdm-dark .jenkins-dropdown__item:hover {
+  background-color: var(--jdm-bg-4) !important;
+}
+
+/* console output and code */
+html.jdm-dark pre,
+html.jdm-dark code,
+html.jdm-dark .console-output,
+html.jdm-dark #out,
+html.jdm-dark .pipeline-node-log {
+  background-color: #0f1115 !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .CodeMirror,
+html.jdm-dark .CodeMirror-gutters {
+  background-color: #0f1115 !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .CodeMirror-cursor {
+  border-left-color: var(--jdm-text) !important;
+}
+html.jdm-dark .ace_editor,
+html.jdm-dark .ace_gutter {
+  background-color: #0f1115 !important;
+  color: var(--jdm-text) !important;
+}
+
+/* help text and notices */
+html.jdm-dark .help,
+html.jdm-dark .help-area .help,
+html.jdm-dark .info,
+html.jdm-dark .warning,
+html.jdm-dark .error {
+  background-color: var(--jdm-bg-3) !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .error { color: #ff9c9c !important; }
+html.jdm-dark .warning { color: #f2d27a !important; }
+
+/* Pipeline stage view (classic) */
+html.jdm-dark .cbwf-stage-view,
+html.jdm-dark .table-box,
+html.jdm-dark .stage-header-name,
+html.jdm-dark .stage-wrapper,
+html.jdm-dark .job-wrapper {
+  background-color: var(--jdm-bg-2) !important;
+  color: var(--jdm-text) !important;
+  border-color: var(--jdm-border) !important;
+}
+html.jdm-dark .stage-total-0,
+html.jdm-dark .stage-start-box {
+  background-color: var(--jdm-bg-3) !important;
+}
+
+/* scrollbars */
+html.jdm-dark ::-webkit-scrollbar { width: 12px; height: 12px; }
+html.jdm-dark ::-webkit-scrollbar-track { background: var(--jdm-bg); }
+html.jdm-dark ::-webkit-scrollbar-thumb {
+  background: var(--jdm-bg-4);
+  border-radius: 6px;
+  border: 3px solid var(--jdm-bg);
+}
